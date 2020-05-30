@@ -17,8 +17,6 @@ public class Termo {
     private static Double formulaForSquareMeter = 0.;
 
 
-    private final static Double B1 = 1.;
-    private final static Double B2 = 1.;
     private final static Integer xLimit = 2500;
     private final static Integer yLimit = 2500;
 
@@ -44,7 +42,7 @@ public class Termo {
     public static void priceForTriple(Glass glass1, Glass glass2, Glass glass3, Spacer spacer1, Spacer spacer2) throws IOException {
         for (double i = x; i <= xLimit; i+=z) {
             for (double j = y; j <= yLimit; j+=z) {
-                formulaForEachPiece = ((((glass1.getPrice() + glass2.getPrice() + glass3.getPrice()) * i * j) / 1000000) + ((B1 + B2) * (2 * i + 2 * j) / 1000)) * 1.;
+                formulaForEachPiece = ((((glass1.getPrice() + glass2.getPrice() + glass3.getPrice()) * i * j) / 1000000) + ((spacer1.getPrice() + spacer2.getPrice()) * (2 * i + 2 * j) / 1000)) * 1.;
                 priceForEach.add(formulaForEachPiece);
                 formulaForSquareMeter = formulaForEachPiece / ((i * j) / 1000000);
                 priceForSquareMeter.add(formulaForSquareMeter);
@@ -60,7 +58,7 @@ public class Termo {
     public static void writeToFile(Glass glass1, Glass glass2, double averagePrice) throws IOException {
         int rowIndex = 0;
         int columnIndex = 0;
-        File excelFile = new File("C://Users//szili//Desktop//preturi.xlsx");
+        File excelFile = new File("src/main/resources/preturi.xlsx");
         FileInputStream inputStream = new FileInputStream(excelFile);
         XSSFWorkbook workbook = new XSSFWorkbook(inputStream);
         XSSFSheet sheet = workbook.getSheetAt(0);
@@ -108,7 +106,7 @@ public class Termo {
     public static void writeToFile(Glass glass1, Glass glass2, Glass glass3, double averagePrice) throws IOException {
         int rowIndex = 0;
         int columnIndex = 0;
-        File excelFile = new File("C://Users//szili//Desktop//preturi.xlsx");
+        File excelFile = new File("src/main/resources/preturi.xlsx");
         FileInputStream inputStream = new FileInputStream(excelFile);
         XSSFWorkbook workbook = new XSSFWorkbook(inputStream);
         XSSFSheet sheet = workbook.getSheetAt(0);
