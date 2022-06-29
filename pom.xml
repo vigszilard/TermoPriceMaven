@@ -21,7 +21,7 @@
     </build>
 
     <properties>
-        <excel.version>3.17</excel.version>
+        <excel.version>4.1.1</excel.version>
         <excel2.version>3.17</excel2.version>
     </properties>
 
