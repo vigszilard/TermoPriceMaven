@@ -22,7 +22,7 @@
 
     <properties>
         <excel.version>3.17</excel.version>
-        <excel2.version>3.17</excel2.version>
+        <excel2.version>5.4.0</excel2.version>
     </properties>
 
     <dependencies>
